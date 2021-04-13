@@ -1,0 +1,60 @@
+{
+    "name": "eolabs-io/shopify-rest-admin-api",
+    "description": "A REST Admin API to integrate with Shopify admin",
+    "keywords": [
+        "eolabs-io",
+        "shopify-rest-admin-api"
+    ],
+    "homepage": "https://github.com/eolabs-io/shopify-rest-admin-api",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Tim Hall",
+            "email": "thall@eolabs.io",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.3",
+        "guzzlehttp/guzzle": "^7.2",
+        "illuminate/support": "^8.0"
+    },
+    "require-dev": {
+        "nunomaduro/collision": "^5.0",
+        "orchestra/testbench": "^6.0",
+        "pestphp/pest": "^0.3.1",
+        "pestphp/pest-plugin-laravel": "^0.3.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "EolabsIo\\ShopifyRestAdminApi\\": "src",
+            "EolabsIo\\ShopifyRestAdminApi\\Database\\Factories\\": "database/factories/",
+            "EolabsIo\\ShopifyRestAdminApi\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "EolabsIo\\ShopifyRestAdminApi\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "EolabsIo\\ShopifyRestAdminApi\\ShopifyRestAdminApiServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    }
+}
