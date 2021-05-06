@@ -1,0 +1,20 @@
+<?php
+
+namespace EolabsIo\ShopifyRestAdminApi\Domain\Products\Events;
+
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Foundation\Events\Dispatchable;
+use EolabsIo\ShopifyRestAdminApi\Domain\Products\Models\Product;
+
+class PersistedProductEvent
+{
+    use Dispatchable, SerializesModels;
+
+    /** @var EolabsIo\ShopifyRestAdminApi\Domain\Products\Models\Product */
+    public $product;
+
+    public function __construct(Product $product)
+    {
+        $this->product = $product;
+    }
+}
