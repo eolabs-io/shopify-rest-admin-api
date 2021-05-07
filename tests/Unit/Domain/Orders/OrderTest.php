@@ -8,14 +8,15 @@ use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\Order;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\Refund;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\TaxLine;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\LineItem;
-use EolabsIo\ShopifyRestAdminApi\Domain\Customers\Models\Address;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\DiscountCode;
+use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\ShippingLine;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\ClientDetails;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\NoteAttribute;
+use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\BillingAddress;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\PaymentDetails;
+use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\ShippingAddress;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\PaymentGatewayName;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\DiscountApplication;
-use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\ShippingLine;
 use EolabsIo\ShopifyRestAdminApi\Domain\ShippingFulfillment\Models\Fulfillment;
 
 class OrderTest extends BaseModelTest
@@ -116,7 +117,7 @@ class OrderTest extends BaseModelTest
     /** @test */
     public function it_has_billing_address_relationship()
     {
-        $expectedAddress = Address::factory()->create();
+        $expectedAddress = BillingAddress::factory()->create();
         Order::factory()->create(['billing_address_id' => $expectedAddress->id]);
 
         $actualOrder = Order::first();
@@ -127,7 +128,7 @@ class OrderTest extends BaseModelTest
     /** @test */
     public function it_has_shipping_address_relationship()
     {
-        $expectedAddress = Address::factory()->create();
+        $expectedAddress = ShippingAddress::factory()->create();
         Order::factory()->create(['shipping_address_id' => $expectedAddress->id]);
 
         $actualOrder = Order::first();

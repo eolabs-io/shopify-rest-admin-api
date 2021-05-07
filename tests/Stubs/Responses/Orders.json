@@ -788,7 +788,37 @@
                 "admin_graphql_api_id": "gid://shopify/OrderTransaction/179259969"
               }
             ],
-            "order_adjustments": []
+            "order_adjustments": [
+                {
+                    "id": 173885194295,
+                    "amount": "-22.00",
+                    "amount_set": {
+                        "shop_money": {
+                            "amount": "-22.00",
+                            "currency_code": "USD"
+                        },
+                        "presentment_money": {
+                            "amount": "-22.00",
+                            "currency_code": "USD"
+                        }
+                    },
+                    "kind": "refund_discrepancy",
+                    "order_id": 450789469,
+                    "reason": "Refund discrepancy",
+                    "refund_id": 509562969,
+                    "tax_amount": "0.00",
+                    "tax_amount_set": {
+                        "shop_money": {
+                            "amount": "0.00",
+                            "currency_code": "USD"
+                        },
+                        "presentment_money": {
+                            "amount": "0.00",
+                            "currency_code": "USD"
+                        }
+                    }
+                }
+            ]
           }
         ],
         "total_tip_received": "0.0",

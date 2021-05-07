@@ -20,8 +20,8 @@ class CreateOrderAdjustmentsTable extends ShopifyMigration
             $table->float('tax_amount');
             $table->string('kind');
             $table->string('reason');
-            $table->unsignedBigInteger('amount_set_id');
-            $table->unsignedBigInteger('tax_amount_set_id');
+            $table->unsignedBigInteger('amount_set_id')->nullable();
+            $table->unsignedBigInteger('tax_amount_set_id')->nullable();
             $table->timestamps();
 
             $table->foreign('order_id')->references('id')->on('orders')->cascadeOnDelete();

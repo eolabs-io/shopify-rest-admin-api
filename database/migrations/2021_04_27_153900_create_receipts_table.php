@@ -14,8 +14,8 @@ class CreateReceiptsTable extends ShopifyMigration
     {
         $this->schema->create('receipts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->boolean('testcase');
-            $table->string('authorization');
+            $table->boolean('testcase')->nullable();
+            $table->string('authorization')->nullable();
             $table->timestamps();
         });
     }

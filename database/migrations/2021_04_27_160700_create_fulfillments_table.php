@@ -19,11 +19,11 @@ class CreateFulfillmentsTable extends ShopifyMigration
             $table->dateTime('created_at');
             $table->string('service');
             $table->dateTime('updated_at');
-            $table->string('tracking_company');
+            $table->string('tracking_company')->nullable();
             $table->string('shipment_status')->nullable();
             $table->unsignedBigInteger('location_id');
-            $table->string('tracking_number');
-            $table->string('tracking_url');
+            $table->string('tracking_number')->nullable();
+            $table->string('tracking_url')->nullable();
             $table->unsignedBigInteger('receipt_id')->nullable();
             $table->string('name');
             $table->string('admin_graphql_api_id');

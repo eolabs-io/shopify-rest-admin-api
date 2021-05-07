@@ -2,7 +2,7 @@
 
 namespace EolabsIo\ShopifyRestAdminApi\Domain\Orders\Actions;
 
-use EolabsIo\ShopifyRestAdminApi\Domain\Customers\Models\Address;
+use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\ShippingAddress;
 use EolabsIo\ShopifyRestAdminApi\Domain\Shared\Actions\BaseAssociateAction;
 
 class AssociateShippingAddressAction extends BaseAssociateAction
@@ -14,8 +14,8 @@ class AssociateShippingAddressAction extends BaseAssociateAction
 
     protected function createItem($list)
     {
-        $values = $this->getFormatedAttributes($list, new Address);
-        $values = $this->validateModelId($values, Address::class);
+        $values = $this->getFormatedAttributes($list, new ShippingAddress);
+        $values = $this->validateModelId($values, ShippingAddress::class);
         $shippingAddress = $this->model->shippingAddress;
         $shippingAddress->fill($values)->save();
 

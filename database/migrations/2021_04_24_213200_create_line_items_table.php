@@ -19,7 +19,7 @@ class CreateLineItemsTable extends ShopifyMigration
             $table->string('title');
             $table->unsignedBigInteger('quantity');
             $table->string('sku');
-            $table->string('variant_title');
+            $table->string('variant_title')->nullable();
             $table->string('vendor')->nullable();
             $table->string('fulfillment_service');
             $table->unsignedBigInteger('product_id');

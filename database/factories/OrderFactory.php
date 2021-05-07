@@ -5,9 +5,10 @@ namespace EolabsIo\ShopifyRestAdminApi\Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\Money;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\Order;
-use EolabsIo\ShopifyRestAdminApi\Domain\Customers\Models\Address;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\ClientDetails;
+use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\BillingAddress;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\PaymentDetails;
+use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\ShippingAddress;
 
 class OrderFactory extends Factory
 {
@@ -112,8 +113,8 @@ class OrderFactory extends Factory
             'total_tax_set_id' => Money::factory(),
             'total_tip_received' => $this->faker->randomFloat(2, 0, 100),
             'admin_graphql_api_id' => $this->faker->url,
-            'billing_address_id' => Address::factory(),
-            'shipping_address_id' => Address::factory(),
+            'billing_address_id' => BillingAddress::factory(),
+            'shipping_address_id' => ShippingAddress::factory(),
             'customer_id' => $this->faker->randomNumber(),
         ];
     }

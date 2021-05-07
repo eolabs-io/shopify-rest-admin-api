@@ -5,14 +5,15 @@ use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\Money;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\Refund;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\LineItem;
 use EolabsIo\ShopifyRestAdminApi\Database\Factories\OrderFactory;
-use EolabsIo\ShopifyRestAdminApi\Domain\Customers\Models\Address;
 use EolabsIo\ShopifyRestAdminApi\Domain\Customers\Models\Customer;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\DiscountCode;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\ShippingLine;
 use EolabsIo\ShopifyRestAdminApi\Domain\Shared\Models\ShopifyModel;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\ClientDetails;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\NoteAttribute;
+use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\BillingAddress;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\PaymentDetails;
+use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\ShippingAddress;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\PaymentGatewayName;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\DiscountApplication;
 use EolabsIo\ShopifyRestAdminApi\Domain\ShippingFulfillment\Models\Fulfillment;
@@ -155,12 +156,12 @@ class Order extends ShopifyModel
 
     public function billingAddress()
     {
-        return $this->belongsTo(Address::class, 'billing_address_id')->withDefault();
+        return $this->belongsTo(BillingAddress::class)->withDefault();
     }
 
     public function shippingAddress()
     {
-        return $this->belongsTo(Address::class, 'shipping_address_id')->withDefault();
+        return $this->belongsTo(ShippingAddress::class)->withDefault();
     }
 
     public function customer()
