@@ -23,7 +23,7 @@ class DefaultAddressFactory extends Factory
     public function definition()
     {
         return [
-            'id' => $this->faker->unique()->randomNumber(),
+            'id' => $this->faker->unique()->randomNumber(9),
             'customer_id' => $this->faker->randomNumber(),
             'default' => $this->faker->boolean(),
             'address_id' => Address::factory(),

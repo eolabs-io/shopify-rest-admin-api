@@ -26,7 +26,7 @@ class RefundTest extends BaseModelTest
 
         $actualRefund = Refund::first();
 
-        $this->assertEquals($expectedOrder->toArray(), $actualRefund->order->toArray());
+        $this->assertArraysEqual($expectedOrder->toArray(), $actualRefund->order->toArray());
     }
 
     /** @test */
@@ -39,7 +39,7 @@ class RefundTest extends BaseModelTest
 
         $actualRefund = Refund::first();
 
-        $this->assertEquals($expectedDuties->toArray(), $actualRefund->duties->toArray());
+        $this->assertArraysEqual($expectedDuties->toArray(), $actualRefund->duties->toArray());
     }
 
     /** @test */
@@ -50,7 +50,7 @@ class RefundTest extends BaseModelTest
 
         $actualRefund = Refund::first();
 
-        $this->assertEquals($expectedRefundDuties->toArray(), $actualRefund->refundDuties->toArray());
+        $this->assertArraysEqual($expectedRefundDuties->toArray(), $actualRefund->refundDuties->toArray());
     }
 
     /** @test */
@@ -74,7 +74,7 @@ class RefundTest extends BaseModelTest
 
         $actualRefund = Refund::first();
 
-        $this->assertEquals($expectedTransactions->toArray(), $actualRefund->transactions->toArray());
+        $this->assertArraysEqual($expectedTransactions->toArray(), $actualRefund->transactions->toArray());
     }
 
     /** @test */

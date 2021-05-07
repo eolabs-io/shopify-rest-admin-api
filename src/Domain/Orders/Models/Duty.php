@@ -9,6 +9,7 @@ use EolabsIo\ShopifyRestAdminApi\Domain\Shared\Models\ShopifyModel;
 
 class Duty extends ShopifyModel
 {
+    public $incrementing = false;
 
     /**
      * The attributes that are mass assignable.

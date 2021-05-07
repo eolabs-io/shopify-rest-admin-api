@@ -18,7 +18,7 @@ class CreateProductOptionValuesTable extends ShopifyMigration
             $table->string('value');
             $table->timestamps();
 
-            $table->foreign('product_option_id')->references('id')->on('product_options');
+            $table->foreign('product_option_id')->references('id')->on('product_options')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

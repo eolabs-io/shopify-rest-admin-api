@@ -24,7 +24,7 @@ class RefundDutyFactory extends Factory
     public function definition()
     {
         return [
-            'duty_id' => $this->faker->unique()->randomNumber(),
+            'duty_id' => $this->faker->unique()->randomNumber(9),
             'refund_id' => Refund::factory(),
             'refund_type' => $this->faker->randomElement(['FULL', 'PROPORTIONAL']),
         ];

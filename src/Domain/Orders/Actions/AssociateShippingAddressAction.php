@@ -15,6 +15,7 @@ class AssociateShippingAddressAction extends BaseAssociateAction
     protected function createItem($list)
     {
         $values = $this->getFormatedAttributes($list, new Address);
+        $values = $this->validateModelId($values, Address::class);
         $shippingAddress = $this->model->shippingAddress;
         $shippingAddress->fill($values)->save();
 

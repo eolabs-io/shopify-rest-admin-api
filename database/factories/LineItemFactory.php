@@ -25,7 +25,7 @@ class LineItemFactory extends Factory
     public function definition()
     {
         return [
-            'id' => $this->faker->unique()->randomNumber(),
+            'id' => $this->faker->unique()->randomNumber(9),
             'order_id' => Order::factory(),
             'variant_id' => $this->faker->randomNumber(),
             'title' => $this->faker->text(),
@@ -43,7 +43,7 @@ class LineItemFactory extends Factory
             'product_exists' => null,
             'fulfillable_quantity' => $this->faker->randomDigit,
             'grams' => $this->faker->randomDigit,
-            'price' => $this->faker->randomFloat(2),
+            'price' => $this->faker->randomFloat(2, 0, 100),
             'total_discount' => $this->faker->randomDigit,
             'fulfillment_status' => $this->faker->randomElement(['null', 'fulfilled', 'partial', 'not_eligible']),
             'price_set_id' => Money::factory(),

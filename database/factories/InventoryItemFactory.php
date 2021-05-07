@@ -23,12 +23,12 @@ class InventoryItemFactory extends Factory
     public function definition()
     {
         return [
-            'id' => $this->faker->unique()->randomNumber(),
+            'id' => $this->faker->unique()->randomNumber(9),
             'sku' => Str::random(),
             'created_at' => $this->faker->dateTime(),
             'updated_at' => $this->faker->dateTime(),
             'requires_shipping' => $this->faker->boolean(),
-            'cost' => $this->faker->randomFloat(2),
+            'cost' => $this->faker->randomFloat(2, 0, 100),
             'country_code_of_origin' => $this->faker->countryCode,
             'province_code_of_origin' => $this->faker->state,
             'harmonized_system_code' => $this->faker->text(),

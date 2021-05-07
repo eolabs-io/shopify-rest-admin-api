@@ -23,14 +23,14 @@ class ProductVariantFactory extends Factory
     public function definition()
     {
         return [
-            'id' => $this->faker->unique()->randomNumber(),
+            'id' => $this->faker->unique()->randomNumber(9),
             'product_id' => Product::factory(),
             'title' => $this->faker->text(),
-            'price' => $this->faker->randomFloat(2),
+            'price' => $this->faker->randomFloat(2, 0, 100),
             'sku' => $this->faker->numerify('###-###-###'),
             'position' => $this->faker->randomElement([1,2,3,4,5]),
             'inventory_policy' => $this->faker->randomElement(['deny', 'continue']),
-            'compare_at_price' => $this->faker->randomFloat(2),
+            'compare_at_price' => $this->faker->randomFloat(2, 0, 100),
             'fulfillment_service' => 'manual',
             'inventory_management' => $this->faker->randomElement(['shopify', null, 'fulfillment_service']),
             'option1' => $this->faker->randomElement(['Default Title', 'Pink', 'title']),

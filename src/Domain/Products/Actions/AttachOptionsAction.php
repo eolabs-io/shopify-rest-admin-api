@@ -21,7 +21,7 @@ class AttachOptionsAction extends BaseAttachAction
         $values = $this->getFormatedAttributes($list, new ProductOption);
         $attributes = ['id' => data_get($list, 'id')];
 
-        $option = ProductOption::updateOrCreate($attributes, $values);
+        $option = ProductOption::firstOrCreate($attributes, $values);
 
         foreach ($this->associateActions() as $associateAction) {
             (new $associateAction($list))->execute($option);

@@ -24,7 +24,7 @@ class FulfillmentFactory extends Factory
     public function definition()
     {
         return [
-            'id' => $this->faker->unique()->randomNumber(),
+            'id' => $this->faker->unique()->randomNumber(9),
             'order_id' => Order::factory(),
             'status' => $this->faker->randomElement([
                 'pending',

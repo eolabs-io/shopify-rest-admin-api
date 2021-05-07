@@ -30,7 +30,7 @@ class DiscountApplicationFactory extends Factory
                 'manual',
                 'script',
             ]),
-            'value' => $this->faker->randomFloat(2),
+            'value' => $this->faker->randomFloat(2, 0, 100),
             'value_type' => $this->faker->randomElement([
                 'fixed_amount',
                 'percentage',

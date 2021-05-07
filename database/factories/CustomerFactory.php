@@ -23,7 +23,7 @@ class CustomerFactory extends Factory
     public function definition()
     {
         return [
-            'id' => $this->faker->unique()->randomNumber(),
+            'id' => $this->faker->unique()->randomNumber(9),
             'email' => $this->faker->email,
             'accepts_marketing' => $this->faker->boolean(95),
             'created_at' => $this->faker->dateTime(),
@@ -32,7 +32,7 @@ class CustomerFactory extends Factory
             'last_name' => $this->faker->lastName,
             'orders_count' => $this->faker->randomDigit,
             'state' => $this->faker->state,
-            'total_spent' => $this->faker->randomFloat(2),
+            'total_spent' => $this->faker->randomFloat(2, 0, 100),
             'last_order_id' => $this->faker->randomNumber(),
             'note' => $this->faker->text(),
             'verified_email' => $this->faker->boolean(),

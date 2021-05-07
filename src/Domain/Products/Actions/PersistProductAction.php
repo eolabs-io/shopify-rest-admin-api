@@ -27,8 +27,8 @@ class PersistProductAction extends BasePersistAction
 
         $product = Product::updateOrCreate($attributes, $values);
 
-        foreach ($this->associateActions() as $associateActions) {
-            (new $associateActions($list))->execute($product);
+        foreach ($this->attachActions() as $attachActions) {
+            (new $attachActions($list))->execute($product);
         }
 
         $product->push();
@@ -36,7 +36,7 @@ class PersistProductAction extends BasePersistAction
         return $product;
     }
 
-    protected function associateActions(): array
+    protected function attachActions(): array
     {
         return [
             AttachVariantsAction::class,

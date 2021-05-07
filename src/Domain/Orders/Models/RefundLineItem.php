@@ -9,6 +9,7 @@ use EolabsIo\ShopifyRestAdminApi\Database\Factories\RefundLineItemFactory;
 
 class RefundLineItem extends ShopifyModel
 {
+    public $incrementing = false;
 
     /**
      * The attributes that are mass assignable.

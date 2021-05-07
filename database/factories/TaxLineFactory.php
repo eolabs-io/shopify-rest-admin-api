@@ -23,8 +23,8 @@ class TaxLineFactory extends Factory
     public function definition()
     {
         return [
-            'price' => $this->faker->randomFloat(2),
-            'rate' => $this->faker->randomFloat(2),
+            'price' => $this->faker->randomFloat(2, 0, 100),
+            'rate' => $this->faker->randomFloat(2, 0, 100),
             'title' => $this->faker->text(),
             'price_set_id' => Money::factory(),
         ];

@@ -25,11 +25,11 @@ class OrderAdjustmentFactory extends Factory
     public function definition()
     {
         return [
-            'id' => $this->faker->unique()->randomNumber(),
+            'id' => $this->faker->unique()->randomNumber(9),
             'order_id' => Order::factory(),
             'refund_id' => Refund::factory(),
-            'amount' => $this->faker->randomFloat(2),
-            'tax_amount' => $this->faker->randomFloat(2),
+            'amount' => $this->faker->randomFloat(2, 0, 100),
+            'tax_amount' => $this->faker->randomFloat(2, 0, 100),
             'kind' => $this->faker->randomElement([
                 'shipping_refund',
                 'refund_discrepancy'

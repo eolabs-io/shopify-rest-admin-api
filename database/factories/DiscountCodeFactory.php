@@ -25,7 +25,7 @@ class DiscountCodeFactory extends Factory
         return [
             'order_id' => Order::factory(),
             'code' => $this->faker->text(10),
-            'amount' => $this->faker->randomFloat(2),
+            'amount' => $this->faker->randomFloat(2, 0, 100),
             'type' => $this->faker->randomElement([
                 'fixed_amount',
                 'percentage',

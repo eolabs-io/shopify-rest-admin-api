@@ -24,7 +24,7 @@ class DutyFactory extends Factory
     public function definition()
     {
         return [
-            'id' => $this->faker->unique()->randomNumber(),
+            'id' => $this->faker->unique()->randomNumber(9),
             'line_item_id' => LineItem::factory(),
             'harmonized_system_code' => $this->faker->randomNumber(),
             'country_code_of_origin' => $this->faker->countryCode,

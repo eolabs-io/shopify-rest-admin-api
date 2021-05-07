@@ -12,6 +12,7 @@ use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Models\DiscountAllocation;
 
 class LineItem extends ShopifyModel
 {
+    public $incrementing = false;
 
     /**
      * The attributes that should be cast.

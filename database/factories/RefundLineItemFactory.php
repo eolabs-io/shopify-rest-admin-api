@@ -25,7 +25,7 @@ class RefundLineItemFactory extends Factory
     public function definition()
     {
         return [
-            'id' => $this->faker->unique()->randomNumber(),
+            'id' => $this->faker->unique()->randomNumber(9),
             'refund_id' => Refund::factory(),
             'line_item_id' => LineItem::factory(),
             'quantity' => $this->faker->randomNumber(),
@@ -36,8 +36,8 @@ class RefundLineItemFactory extends Factory
                 'return',
                 'legacy_restock',
             ]),
-            'subtotal' => $this->faker->randomFloat(2),
-            'total_tax' => $this->faker->randomFloat(2),
+            'subtotal' => $this->faker->randomFloat(2, 0, 100),
+            'total_tax' => $this->faker->randomFloat(2, 0, 100),
             'subtotal_set_id' => Money::factory(),
             'total_tax_set_id' => Money::factory(),
         ];

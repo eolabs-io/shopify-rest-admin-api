@@ -15,6 +15,7 @@ class AssociateBillingAddressAction extends BaseAssociateAction
     protected function createItem($list)
     {
         $values = $this->getFormatedAttributes($list, new Address);
+        $values = $this->validateModelId($values, Address::class);
         $billingAddress = $this->model->billingAddress;
         $billingAddress->fill($values)->save();
 

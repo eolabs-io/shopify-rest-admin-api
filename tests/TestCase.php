@@ -28,7 +28,7 @@ abstract class TestCase extends Orchestra
             'admin_api_password' => '12345',
         ]);
 
-        $default = 'testbench'; // 'mysql';
+        $default = (false) ? 'mysql' : 'testbench';
 
         $app['config']->set('database.default', $default);
 

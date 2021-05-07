@@ -7,6 +7,7 @@ use EolabsIo\ShopifyRestAdminApi\Database\Factories\ProductOptionFactory;
 
 class ProductOption extends ShopifyModel
 {
+    public $incrementing = false;
 
     /**
      * The attributes that are mass assignable.

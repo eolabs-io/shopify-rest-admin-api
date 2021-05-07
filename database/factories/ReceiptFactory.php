@@ -22,6 +22,7 @@ class ReceiptFactory extends Factory
     public function definition()
     {
         return [
+            'id' => $this->faker->unique()->randomNumber(9),
             'testcase' => $this->faker->boolean(),
             'authorization' => $this->faker->text(10),
         ];

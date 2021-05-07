@@ -23,7 +23,7 @@ class ProductOptionFactory extends Factory
     public function definition()
     {
         return [
-            'id' => $this->faker->unique()->randomNumber(),
+            'id' => $this->faker->unique()->randomNumber(9),
             'product_id' => Product::factory(),
             'name' => $this->faker->text(),
             'position' => $this->faker->randomElement([1,2,3,4,5]),

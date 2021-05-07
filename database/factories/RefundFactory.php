@@ -23,7 +23,7 @@ class RefundFactory extends Factory
     public function definition()
     {
         return [
-            'id' => $this->faker->unique()->randomNumber(),
+            'id' => $this->faker->unique()->randomNumber(9),
             'order_id' => Order::factory(),
             'created_at' => $this->faker->dateTime(),
             'note' => $this->faker->text(),

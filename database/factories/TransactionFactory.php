@@ -26,7 +26,7 @@ class TransactionFactory extends Factory
     public function definition()
     {
         return [
-            'id' => $this->faker->unique()->randomNumber(),
+            'id' => $this->faker->unique()->randomNumber(9),
             'order_id' => Order::factory(),
             'kind' => $this->faker->randomElement([
                 'authorization',
@@ -73,7 +73,7 @@ class TransactionFactory extends Factory
             ]),
             'receipt_id' => Receipt::factory(),
             'currency_exchange_adjustment_id' => CurrencyExchangeAdjustment::factory(),
-            'amount' => $this->faker->randomFloat(2),
+            'amount' => $this->faker->randomFloat(2, 0, 100),
             'currency' => $this->faker->currencyCode,
             'admin_graphql_api_id' => $this->faker->url,
             'payment_details_id' => PaymentDetails::factory(),

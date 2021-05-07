@@ -22,7 +22,7 @@ class LocationFactory extends Factory
     public function definition()
     {
         return [
-            'id' => $this->faker->unique()->randomNumber(),
+            'id' => $this->faker->unique()->randomNumber(9),
             'name' => $this->faker->name,
             'address1' => $this->faker->address,
             'address2' => null,

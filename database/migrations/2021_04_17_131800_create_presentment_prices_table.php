@@ -19,9 +19,9 @@ class CreatePresentmentPricesTable extends ShopifyMigration
             $table->unsignedBigInteger('compare_at_price_id')->nullable();
             $table->timestamps();
 
-            $table->foreign('product_variant_id')->references('id')->on('product_variants');
-            $table->foreign('price_id')->references('id')->on('prices')->cascadeOnDelete();
-            $table->foreign('compare_at_price_id')->references('id')->on('prices')->cascadeOnDelete();
+            $table->foreign('product_variant_id')->references('id')->on('product_variants')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('price_id')->references('id')->on('prices')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('compare_at_price_id')->references('id')->on('prices')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

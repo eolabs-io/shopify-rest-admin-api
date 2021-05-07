@@ -7,6 +7,8 @@ use EolabsIo\ShopifyRestAdminApi\Database\Factories\CurrencyExchangeAdjustmentFa
 
 class CurrencyExchangeAdjustment extends ShopifyModel
 {
+    public $incrementing = false;
+
     /**
      * The attributes that are mass assignable.
      *

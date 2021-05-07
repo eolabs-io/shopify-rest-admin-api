@@ -15,7 +15,7 @@ class CreateProductsTable extends ShopifyMigration
         $this->schema->create('products', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->primary();
             $table->string('title');
-            $table->string('body_html')->nullable();
+            $table->text('body_html')->nullable();
             $table->string('vendor')->nullable();
             $table->string('product_type')->nullable();
             $table->dateTime('created_at');
@@ -25,7 +25,7 @@ class CreateProductsTable extends ShopifyMigration
             $table->string('template_suffix')->nullable();
             $table->string('status')->nullable();
             $table->string('published_scope');
-            $table->string('tags')->nullable();
+            $table->text('tags')->nullable();
             $table->string('admin_graphql_api_id')->nullable();
             $table->unsignedBigInteger('image_id')->nullable();
 

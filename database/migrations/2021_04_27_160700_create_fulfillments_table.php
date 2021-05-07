@@ -24,7 +24,7 @@ class CreateFulfillmentsTable extends ShopifyMigration
             $table->unsignedBigInteger('location_id');
             $table->string('tracking_number');
             $table->string('tracking_url');
-            $table->unsignedBigInteger('receipt_id');
+            $table->unsignedBigInteger('receipt_id')->nullable();
             $table->string('name');
             $table->string('admin_graphql_api_id');
             $table->boolean('notify_customer')->nullable();

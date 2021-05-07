@@ -2,6 +2,7 @@
 
 namespace EolabsIo\ShopifyRestAdminApi\Domain\Shared\Actions;
 
+use Illuminate\Database\Eloquent\Model;
 use EolabsIo\ShopifyRestAdminApi\Domain\Shared\Concerns\FormatsModelAttributes;
 
 abstract class BaseAssociateAction
@@ -42,4 +43,16 @@ abstract class BaseAssociateAction
     }
 
     abstract protected function createItem($list);
+
+    public function validateModelId(array $values, string $model): array
+    {
+        $keyName = (new $model)->getKeyName();
+        $keyValue = data_get($values, $keyName);
+
+        if ($keyValue == 0) {
+            $values[$keyName] = $model::max($keyName) + 1;
+        }
+
+        return $values;
+    }
 }

@@ -14,6 +14,8 @@ class Refund extends ShopifyModel
     const CREATED_AT = 'model_created_at';
     const UPDATED_AT = 'model_updated_at';
 
+    public $incrementing = false;
+
     /**
      * The attributes that should be cast.
      *

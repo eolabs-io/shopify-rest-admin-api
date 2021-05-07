@@ -10,6 +10,8 @@ use EolabsIo\ShopifyRestAdminApi\Database\Factories\ShippingLineFactory;
 
 class ShippingLine extends ShopifyModel
 {
+    public $incrementing = false;
+
     /**
      * The attributes that are mass assignable.
      *

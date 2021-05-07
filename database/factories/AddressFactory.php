@@ -23,7 +23,7 @@ class AddressFactory extends Factory
     public function definition()
     {
         return [
-            'id' => $this->faker->unique()->randomNumber(),
+            'id' => $this->faker->unique()->randomNumber(9),
             'customer_id' => Customer::factory(),
             'first_name' => $this->faker->firstName,
             'last_name' => $this->faker->lastName,

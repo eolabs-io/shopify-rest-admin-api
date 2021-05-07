@@ -23,7 +23,7 @@ class PriceFactory extends Factory
     {
         return [
             'currency_code' => $this->faker->currencyCode,
-            'amount' => $this->faker->randomFloat(2),
+            'amount' => $this->faker->randomFloat(2, 0, 100),
         ];
     }
 }

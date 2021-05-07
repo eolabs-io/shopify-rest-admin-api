@@ -25,7 +25,7 @@ class DiscountAllocationFactory extends Factory
     {
         return [
             'line_item_id' => LineItem::factory(),
-            'amount' => $this->faker->randomFloat(2),
+            'amount' => $this->faker->randomFloat(2, 0, 100),
             'discount_application_index' => $this->faker->randomDigit,
             'amount_set_id' => Money::factory(),
         ];

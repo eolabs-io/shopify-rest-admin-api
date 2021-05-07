@@ -10,6 +10,8 @@ use EolabsIo\ShopifyRestAdminApi\Database\Factories\OrderAdjustmentFactory;
 
 class OrderAdjustment extends ShopifyModel
 {
+    public $incrementing = false;
+
     protected $hidden = ['pivot'];
 
     /**

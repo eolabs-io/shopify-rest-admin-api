@@ -22,10 +22,10 @@ class CurrencyExchangeAdjustmentFactory extends Factory
     public function definition()
     {
         return [
-            'id' => $this->faker->unique()->randomNumber(),
-            'adjustment' => $this->faker->randomFloat(2),
-            'original_amount' => $this->faker->randomFloat(2),
-            'final_amount' => $this->faker->randomFloat(2),
+            'id' => $this->faker->unique()->randomNumber(9),
+            'adjustment' => $this->faker->randomFloat(2, 0, 100),
+            'original_amount' => $this->faker->randomFloat(2, 0, 100),
+            'final_amount' => $this->faker->randomFloat(2, 0, 100),
             'currency' => $this->faker->currencyCode,
         ];
     }

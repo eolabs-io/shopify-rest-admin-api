@@ -7,6 +7,7 @@ use EolabsIo\ShopifyRestAdminApi\Domain\Shared\Models\ShopifyModel;
 
 class Address extends ShopifyModel
 {
+    public $incrementing = false;
 
     /**
      * The attributes that should be cast.

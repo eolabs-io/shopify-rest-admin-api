@@ -24,12 +24,12 @@ class ShippingLineFactory extends Factory
     public function definition()
     {
         return [
-            'id' => $this->faker->unique()->randomNumber(),
+            'id' => $this->faker->unique()->randomNumber(9),
             'order_id' => Order::factory(),
             'code' => $this->faker->text(),
-            'price' => $this->faker->randomFloat(2),
+            'price' => $this->faker->randomFloat(2, 0, 100),
             'price_set_id' => Money::factory(),
-            'discounted_price' => $this->faker->randomFloat(2),
+            'discounted_price' => $this->faker->randomFloat(2, 0, 100),
             'discounted_price_set_id' => Money::factory(),
             'source' => $this->faker->text(),
             'title' => $this->faker->text(),
