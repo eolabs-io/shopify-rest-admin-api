@@ -21,7 +21,7 @@ class CreateOrdersTable extends ShopifyMigration
             $table->unsignedBigInteger('number');
             $table->string('note')->nullable();
             $table->string('token');
-            $table->string('gateway');
+            $table->string('gateway')->nullable();
             $table->boolean('test');
             $table->float('total_price');
             $table->float('subtotal_price');
@@ -33,7 +33,7 @@ class CreateOrdersTable extends ShopifyMigration
             $table->boolean('confirmed');
             $table->float('total_discounts');
             $table->float('total_line_items_price');
-            $table->string('cart_token');
+            $table->string('cart_token')->nullable();
             $table->boolean('buyer_accepts_marketing');
             $table->string('name');
             $table->string('referring_site');
