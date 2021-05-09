@@ -19,7 +19,7 @@ class CreateClientDetailsTable extends ShopifyMigration
             $table->string('browser_ip')->nullable();
             $table->string('browser_width')->nullable();
             $table->string('session_hash')->nullable();
-            $table->string('user_agent')->nullable();
+            $table->text('user_agent')->nullable();
             $table->timestamps();
         });
     }

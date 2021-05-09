@@ -16,7 +16,7 @@ class CreateRefundsTable extends ShopifyMigration
             $table->unsignedBigInteger('id')->primary();
             $table->unsignedBigInteger('order_id');
             $table->dateTime('created_at');
-            $table->string('note');
+            $table->string('note')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->dateTime('processed_at');
             $table->string('admin_graphql_api_id');

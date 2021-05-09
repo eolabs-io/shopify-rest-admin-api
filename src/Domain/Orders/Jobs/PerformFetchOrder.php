@@ -9,6 +9,8 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Http\Client\RequestException;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Order;
+use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Events\FetchOrder;
+use EolabsIo\ShopifyRestAdminApi\Support\Facades\ShopifyThrottlingMiddleware;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Jobs\ProcessFetchOrderResponse;
 
 class PerformFetchOrder implements ShouldQueue
@@ -40,9 +42,15 @@ class PerformFetchOrder implements ShouldQueue
             $results = $this->order->fetch();
 
             ProcessFetchOrderResponse::dispatch($results);
+            FetchOrder::dispatchIf($this->order->hasNextPage(), $this->order);
         } catch (RequestException $exception) {
             // $delay = 30;
             // $this->handleRequestException($exception, $delay);
         }
+    }
+
+    public function middleware()
+    {
+        return [ShopifyThrottlingMiddleware::forShopify()];
     }
 }

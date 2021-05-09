@@ -9,6 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Http\Client\RequestException;
 use EolabsIo\ShopifyRestAdminApi\Domain\Inventory\Location;
+use EolabsIo\ShopifyRestAdminApi\Support\Facades\ShopifyThrottlingMiddleware;
 use EolabsIo\ShopifyRestAdminApi\Domain\Inventory\Jobs\ProcessFetchLocationResponse;
 
 class PerformFetchLocation implements ShouldQueue
@@ -44,5 +45,10 @@ class PerformFetchLocation implements ShouldQueue
             // $delay = 30;
             // $this->handleRequestException($exception, $delay);
         }
+    }
+
+    public function middleware()
+    {
+        return [ShopifyThrottlingMiddleware::forShopify()];
     }
 }

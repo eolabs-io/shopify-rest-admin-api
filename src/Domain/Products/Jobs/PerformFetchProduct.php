@@ -9,6 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Http\Client\RequestException;
 use EolabsIo\ShopifyRestAdminApi\Domain\Products\Product;
+use EolabsIo\ShopifyRestAdminApi\Support\Facades\ShopifyThrottlingMiddleware;
 
 class PerformFetchProduct implements ShouldQueue
 {
@@ -43,5 +44,10 @@ class PerformFetchProduct implements ShouldQueue
             // $delay = 30;
             // $this->handleRequestException($exception, $delay);
         }
+    }
+
+    public function middleware()
+    {
+        return [ShopifyThrottlingMiddleware::forShopify()];
     }
 }

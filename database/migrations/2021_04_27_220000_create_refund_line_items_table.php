@@ -17,7 +17,7 @@ class CreateRefundLineItemsTable extends ShopifyMigration
             $table->unsignedBigInteger('refund_id');
             $table->unsignedBigInteger('line_item_id');
             $table->unsignedBigInteger('quantity');
-            $table->unsignedBigInteger('location_id');
+            $table->unsignedBigInteger('location_id')->nullable();
             $table->string('restock_type');
             $table->float('subtotal');
             $table->float('total_tax');

@@ -16,7 +16,7 @@ class CreateNoteAttributesTable extends ShopifyMigration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('order_id');
             $table->string('name')->nullable();
-            $table->string('value')->nullable();
+            $table->text('value')->nullable();
             $table->timestamps();
 
             $table->foreign('order_id')->references('id')->on('orders')->cascadeOnDelete();

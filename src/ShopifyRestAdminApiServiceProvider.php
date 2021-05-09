@@ -13,6 +13,7 @@ use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Providers\EventServiceProvider as
 use EolabsIo\ShopifyRestAdminApi\Domain\Products\Providers\EventServiceProvider as ProductsEventServiceProvider;
 use EolabsIo\ShopifyRestAdminApi\Domain\Customers\Providers\EventServiceProvider as CustomersEventServiceProvider;
 use EolabsIo\ShopifyRestAdminApi\Domain\Inventory\Providers\EventServiceProvider as InventoryEventServiceProvider;
+use EolabsIo\ShopifyRestAdminApi\Domain\Shared\Middleware\ShopifyThrottlingMiddleware;
 
 class ShopifyRestAdminApiServiceProvider extends ServiceProvider
 {
@@ -72,6 +73,10 @@ class ShopifyRestAdminApiServiceProvider extends ServiceProvider
 
         $this->app->singleton('shopify-admin-api-inventory-level', function () {
             return new InventoryLevel;
+        });
+
+        $this->app->singleton('shopify-throttling-middleware', function () {
+            return new ShopifyThrottlingMiddleware;
         });
     }
 }

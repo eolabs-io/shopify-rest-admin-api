@@ -18,7 +18,7 @@ class CreateInventoryItemsTable extends ShopifyMigration
             $table->dateTime('created_at');
             $table->dateTime('updated_at');
             $table->boolean('requires_shipping');
-            $table->float('cost');
+            $table->float('cost')->nullable();
             $table->string('country_code_of_origin')->nullable();
             $table->string('province_code_of_origin')->nullable();
             $table->string('harmonized_system_code')->nullable();

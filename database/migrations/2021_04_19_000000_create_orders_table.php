@@ -36,8 +36,8 @@ class CreateOrdersTable extends ShopifyMigration
             $table->string('cart_token')->nullable();
             $table->boolean('buyer_accepts_marketing');
             $table->string('name');
-            $table->string('referring_site')->nullable();
-            $table->string('landing_site')->nullable();
+            $table->text('referring_site')->nullable();
+            $table->text('landing_site')->nullable();
             $table->dateTime('cancelled_at')->nullable();
             $table->string('cancel_reason')->nullable();
             $table->float('total_price_usd');
@@ -75,7 +75,7 @@ class CreateOrdersTable extends ShopifyMigration
             $table->string('admin_graphql_api_id');
             $table->unsignedBigInteger('billing_address_id')->nullable();
             $table->unsignedBigInteger('shipping_address_id')->nullable();
-            $table->unsignedBigInteger('customer_id');
+            $table->unsignedBigInteger('customer_id')->nullable();
 
             // $table->timestamps();
             $table->timestamp('model_created_at')->nullable();

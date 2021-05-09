@@ -123,7 +123,7 @@ trait OrderQueryable
 
     public function withStatusAny(): self
     {
-        $this->orderQueryableParameters['status'] = null;
+        $this->orderQueryableParameters['status'] = 'any';
 
         return $this;
     }

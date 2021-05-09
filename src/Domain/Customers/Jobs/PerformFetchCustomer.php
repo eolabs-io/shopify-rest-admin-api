@@ -10,6 +10,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Http\Client\RequestException;
 use EolabsIo\ShopifyRestAdminApi\Domain\Customers\Customer;
 use EolabsIo\ShopifyRestAdminApi\Domain\Customers\Events\FetchCustomer;
+use EolabsIo\ShopifyRestAdminApi\Support\Facades\ShopifyThrottlingMiddleware;
 use EolabsIo\ShopifyRestAdminApi\Domain\Customers\Jobs\ProcessFetchCustomerResponse;
 
 class PerformFetchCustomer implements ShouldQueue
@@ -46,5 +47,10 @@ class PerformFetchCustomer implements ShouldQueue
             // $delay = 30;
             // $this->handleRequestException($exception, $delay);
         }
+    }
+
+    public function middleware()
+    {
+        return [ShopifyThrottlingMiddleware::forShopify()];
     }
 }

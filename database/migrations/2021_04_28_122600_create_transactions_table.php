@@ -21,7 +21,7 @@ class CreateTransactionsTable extends ShopifyMigration
             $table->string('message')->nullable();
             $table->dateTime('created_at');
             $table->boolean('test');
-            $table->string('authorization');
+            $table->string('authorization')->nullable();
             $table->unsignedBigInteger('location_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('parent_id');

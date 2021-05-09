@@ -9,6 +9,8 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Http\Client\RequestException;
 use EolabsIo\ShopifyRestAdminApi\Domain\Inventory\InventoryItem;
+use EolabsIo\ShopifyRestAdminApi\Domain\Inventory\Events\FetchInventoryItem;
+use EolabsIo\ShopifyRestAdminApi\Support\Facades\ShopifyThrottlingMiddleware;
 use EolabsIo\ShopifyRestAdminApi\Domain\Inventory\Jobs\ProcessFetchInventoryItemResponse;
 
 class PerformFetchInventoryItem implements ShouldQueue
@@ -40,9 +42,15 @@ class PerformFetchInventoryItem implements ShouldQueue
             $results = $this->inventoryItem->fetch();
 
             ProcessFetchInventoryItemResponse::dispatch($results);
+            FetchInventoryItem::dispatchIf($this->inventoryItem->hasNextPage(), $this->inventoryItem);
         } catch (RequestException $exception) {
             // $delay = 30;
             // $this->handleRequestException($exception, $delay);
         }
+    }
+
+    public function middleware()
+    {
+        return [ShopifyThrottlingMiddleware::forShopify()];
     }
 }
