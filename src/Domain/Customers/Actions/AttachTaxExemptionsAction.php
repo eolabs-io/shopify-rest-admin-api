@@ -15,6 +15,11 @@ class AttachTaxExemptionsAction extends BaseAttachAction
         return 'tax_exemptions';
     }
 
+    public function beforeCreateFromList()
+    {
+        $this->model->taxExemptions()->detach();
+    }
+
     protected function createItem($list)
     {
         $attributes = ['name' => $list];

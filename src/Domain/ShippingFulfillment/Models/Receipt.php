@@ -6,8 +6,6 @@ use EolabsIo\ShopifyRestAdminApi\Domain\Shared\Models\ShopifyModel;
 
 class Receipt extends ShopifyModel
 {
-    public $incrementing = false;
-
     /**
      * The attributes that should be cast.
      *
@@ -23,7 +21,6 @@ class Receipt extends ShopifyModel
      * @var array
      */
     protected $fillable = [
-        'id',
         'testcase',
         'authorization',
     ];

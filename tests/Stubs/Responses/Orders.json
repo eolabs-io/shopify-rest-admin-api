@@ -856,7 +856,23 @@
               }
             },
             "discount_allocations": [],
-            "tax_lines": []
+            "tax_lines": [
+                {
+                    "price": "1.94",
+                    "rate": 0.00,
+                    "title": "State Tax",
+                    "price_set": {
+                      "shop_money": {
+                        "amount": "1.94",
+                        "currency_code": "USD"
+                      },
+                      "presentment_money": {
+                        "amount": "1.94",
+                        "currency_code": "USD"
+                      }
+                    }
+                }
+            ]
           }
         ],
         "billing_address": {

@@ -7,10 +7,6 @@ use EolabsIo\ShopifyRestAdminApi\Domain\Shared\Actions\BaseAttachAction;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Actions\AttachTaxLinesAction;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Actions\AssociatePriceSetAction;
 use EolabsIo\ShopifyRestAdminApi\Domain\Shared\Concerns\FormatsModelAttributes;
-use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Actions\AttachRefundDutiesAction;
-use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Actions\AttachTransactionsAction;
-use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Actions\AttachRefundLineItemsAction;
-use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Actions\AttachOrderAdjustmentsAction;
 use EolabsIo\ShopifyRestAdminApi\Domain\Orders\Actions\AssociateDiscountedPriceSetAction;
 
 class AttachShippingLinesAction extends BaseAttachAction

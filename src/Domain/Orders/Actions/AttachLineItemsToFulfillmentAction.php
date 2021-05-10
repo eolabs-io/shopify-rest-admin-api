@@ -15,11 +15,16 @@ class AttachLineItemsToFulfillmentAction extends BaseAttachAction
         return 'line_items';
     }
 
+    public function beforeCreateFromList()
+    {
+        $this->model->lineItems()->detach();
+    }
+
     protected function createItem($list)
     {
         $line_item_id = data_get($list, 'id');
 
-        if ($lineItem = LineItem::first($line_item_id)) {
+        if ($lineItem = LineItem::find($line_item_id)) {
             $this->model->lineItems()->attach($lineItem);
         }
     }

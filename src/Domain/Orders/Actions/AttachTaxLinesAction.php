@@ -16,6 +16,11 @@ class AttachTaxLinesAction extends BaseAttachAction
         return 'tax_lines';
     }
 
+    public function beforeCreateFromList()
+    {
+        $this->model->taxLines()->detach();
+    }
+
     protected function createItem($list)
     {
         $values = $this->getFormatedAttributes($list, new TaxLine);

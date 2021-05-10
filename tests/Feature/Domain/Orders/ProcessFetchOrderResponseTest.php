@@ -2,7 +2,6 @@
 
 namespace EolabsIo\ShopifyRestAdminApi\Tests\Feature\Orders;
 
-use Illuminate\Support\Arr;
 use EolabsIo\ShopifyRestAdminApi\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use EolabsIo\ShopifyRestAdminApi\Support\Facades\Order;
@@ -13,6 +12,7 @@ class ProcessFetchOrderResponseTest extends TestCase
 {
     use RefreshDatabase;
 
+    public $results;
 
     protected function setUp(): void
     {
@@ -20,9 +20,9 @@ class ProcessFetchOrderResponseTest extends TestCase
 
         Order::fake();
 
-        $results = Order::fetch();
+        $this->results = Order::fetch();
 
-        (new ProcessFetchOrderResponse($results))->handle();
+        (new ProcessFetchOrderResponse($this->results))->handle();
     }
 
     /** @test */
@@ -81,6 +81,67 @@ class ProcessFetchOrderResponseTest extends TestCase
         $this->assertFulfillments($order);
         $this->assertRefunds($order);
         $this->assertShippingLines($order);
+    }
+
+    /** @test */
+    public function it_can_process_same_order_without_duplication_response()
+    {
+        $this->assertOrderDataBaseState();
+
+        // Same repsonse as before processed a second time
+        (new ProcessFetchOrderResponse($this->results))->handle();
+
+        $this->assertOrderDataBaseState();
+    }
+
+    public function assertOrderDataBaseState()
+    {
+        $this->assertDatabaseCount('locations', 0);
+        $this->assertDatabaseCount('inventory_items', 0);
+        $this->assertDatabaseCount('inventory_levels', 0);
+        $this->assertDatabaseCount('products', 0);
+        $this->assertDatabaseCount('prices', 48);
+        $this->assertDatabaseCount('product_images', 0);
+        $this->assertDatabaseCount('product_variants', 0);
+        $this->assertDatabaseCount('product_options', 0);
+        $this->assertDatabaseCount('product_option_values', 0);
+        $this->assertDatabaseCount('presentment_prices', 0);
+        $this->assertDatabaseCount('addresses', 0);
+        $this->assertDatabaseCount('billing_addresses', 1);
+        $this->assertDatabaseCount('shipping_addresses', 1);
+        $this->assertDatabaseCount('customers', 0);
+        $this->assertDatabaseCount('tax_exemptions', 0);
+        $this->assertDatabaseCount('customer_tax_exemption', 0);
+        $this->assertDatabaseCount('money', 24);
+        $this->assertDatabaseCount('payment_details', 1);
+        $this->assertDatabaseCount('client_details', 1);
+        $this->assertDatabaseCount('orders', 1);
+        $this->assertDatabaseCount('discount_applications', 1);
+        $this->assertDatabaseCount('discount_codes', 1);
+        $this->assertDatabaseCount('note_attributes', 2);
+        $this->assertDatabaseCount('payment_gateway_names', 1);
+        $this->assertDatabaseCount('tax_lines', 3);
+        $this->assertDatabaseCount('line_items', 3);
+        $this->assertDatabaseCount('discount_allocations', 3);
+        $this->assertDatabaseCount('duties', 0);
+        $this->assertDatabaseCount('duty_tax_line', 0);
+        $this->assertDatabaseCount('properties', 2);
+        $this->assertDatabaseCount('line_item_tax_line', 3);
+        $this->assertDatabaseCount('fulfillments', 1);
+        $this->assertDatabaseCount('receipts', 1);
+        $this->assertDatabaseCount('fulfillment_line_item', 1);
+        $this->assertDatabaseCount('tracking_numbers', 1);
+        $this->assertDatabaseCount('tracking_urls', 1);
+        $this->assertDatabaseCount('refunds', 1);
+        $this->assertDatabaseCount('refund_duties', 0);
+        $this->assertDatabaseCount('refund_line_items', 2);
+        $this->assertDatabaseCount('order_adjustments', 1);
+        $this->assertDatabaseCount('currency_exchange_adjustments', 0);
+        $this->assertDatabaseCount('transactions', 1);
+        $this->assertDatabaseCount('duty_refund', 0);
+        $this->assertDatabaseCount('refund_transaction', 1);
+        $this->assertDatabaseCount('shipping_lines', 1);
+        $this->assertDatabaseCount('order_tax_line', 1);
     }
 
     public function assertClientDetails($order)

@@ -17,8 +17,10 @@ class AttachTrackingUrlsAction extends BaseAttachAction
 
     protected function createItem($list)
     {
-        $values = $this->getFormatedAttributes($list, new TrackingUrl);
-        $values['fulfillment_id'] = $this->model->id;
+        $values = [
+            'url' => $list,
+            'fulfillment_id' => $this->model->id,
+        ];
         $attributes = $values;
 
         TrackingUrl::firstOrCreate($attributes, $values);

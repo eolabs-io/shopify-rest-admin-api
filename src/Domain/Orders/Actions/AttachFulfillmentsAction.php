@@ -31,6 +31,10 @@ class AttachFulfillmentsAction extends BaseAttachAction
         }
 
         $fulfillment->save();
+
+        foreach ($this->attachActions() as $attachAction) {
+            (new $attachAction($list))->execute($fulfillment);
+        }
     }
 
     protected function associateActions(): array

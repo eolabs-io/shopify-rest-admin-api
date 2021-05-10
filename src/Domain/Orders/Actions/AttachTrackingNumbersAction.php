@@ -17,8 +17,11 @@ class AttachTrackingNumbersAction extends BaseAttachAction
 
     protected function createItem($list)
     {
-        $values = $this->getFormatedAttributes($list, new TrackingNumber);
-        $values['fulfillment_id'] = $this->model->id;
+        $values = [
+            'number' => $list,
+            'fulfillment_id' => $this->model->id,
+        ];
+
         $attributes = $values;
 
         TrackingNumber::firstOrCreate($attributes, $values);

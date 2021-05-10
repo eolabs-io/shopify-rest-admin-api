@@ -15,6 +15,11 @@ class AttachTransactionsAction extends BaseAttachAction
         return 'transactions';
     }
 
+    public function beforeCreateFromList()
+    {
+        $this->model->transactions()->detach();
+    }
+
     protected function createItem($list)
     {
         $values = $this->getFormatedAttributes($list, new Transaction);
