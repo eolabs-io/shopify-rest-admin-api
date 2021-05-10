@@ -10,6 +10,6 @@ class FetchOrderListener
     public function handle(FetchOrder $event)
     {
         $order = $event->order;
-        PerformFetchOrder::dispatch($order)->onQueue('shopify-order');
+        PerformFetchOrder::dispatch($order)->onQueue('shopify-rest-admin-api');
     }
 }

@@ -10,6 +10,6 @@ class FetchLocationListener
     public function handle(FetchLocation $event)
     {
         $location = $event->location;
-        PerformFetchLocation::dispatch($location)->onQueue('shopify-inventory');
+        PerformFetchLocation::dispatch($location)->onQueue('shopify-rest-admin-api');
     }
 }

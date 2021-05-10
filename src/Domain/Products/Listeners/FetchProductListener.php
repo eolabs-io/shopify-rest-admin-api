@@ -10,6 +10,6 @@ class FetchProductListener
     public function handle(FetchProduct $event)
     {
         $product = $event->product;
-        PerformFetchProduct::dispatch($product)->onQueue('shopify-product');
+        PerformFetchProduct::dispatch($product)->onQueue('shopify-rest-admin-api');
     }
 }

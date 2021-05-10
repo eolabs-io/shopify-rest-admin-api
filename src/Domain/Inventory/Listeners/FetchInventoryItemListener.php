@@ -10,6 +10,6 @@ class FetchInventoryItemListener
     public function handle(FetchInventoryItem $event)
     {
         $inventoryItem = $event->inventoryItem;
-        PerformFetchInventoryItem::dispatch($inventoryItem)->onQueue('shopify-inventory');
+        PerformFetchInventoryItem::dispatch($inventoryItem)->onQueue('shopify-rest-admin-api');
     }
 }

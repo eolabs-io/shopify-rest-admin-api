@@ -10,6 +10,6 @@ class FetchInventoryLevelListener
     public function handle(FetchInventoryLevel $event)
     {
         $inventoryLevel = $event->inventoryLevel;
-        PerformFetchInventoryLevel::dispatch($inventoryLevel)->onQueue('shopify-inventory');
+        PerformFetchInventoryLevel::dispatch($inventoryLevel)->onQueue('shopify-rest-admin-api');
     }
 }

@@ -10,6 +10,6 @@ class FetchCustomerListener
     public function handle(FetchCustomer $event)
     {
         $customer = $event->customer;
-        PerformFetchCustomer::dispatch($customer)->onQueue('shopify-customer');
+        PerformFetchCustomer::dispatch($customer)->onQueue('shopify-rest-admin-api');
     }
 }
