@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use EolabsIo\ShopifyRestAdminApi\Domain\Shared\Migrations\ShopifyMigration;
 
-class CreateAddressesTable extends ShopifyMigration
+class CreateShopifyAddressesTable extends ShopifyMigration
 {
     /**
      * Run the migrations.
