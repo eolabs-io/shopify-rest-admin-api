@@ -32,7 +32,7 @@ class ShopifyRestAdminApiServiceProvider extends ServiceProvider
             ], 'shopify-migrations');
 
             $this->publishes([
-                __DIR__.'/../config/walmart.php' => config_path('shopify.php'),
+                __DIR__.'/../config/shopify.php' => config_path('shopify.php'),
             ], 'shopify-config');
         }
     }
