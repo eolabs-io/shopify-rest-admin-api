@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use EolabsIo\ShopifyRestAdminApi\Domain\Shared\Migrations\ShopifyMigration;
 
-class CreateMoneyTable extends ShopifyMigration
+class CreateShopifyMoneyTable extends ShopifyMigration
 {
     /**
      * Run the migrations.
