@@ -46,6 +46,7 @@ class Product extends ShopifyModel
         'tags',
         'admin_graphql_api_id',
         'image_id',
+        'name',
     ];
 
     public function variants()

@@ -38,6 +38,7 @@ class ProductFactory extends Factory
             'tags' => $this->faker->text(),
             'admin_graphql_api_id' => $this->faker->url,
             'image_id' => null, //ProductImage::factory(),
+            'name' => $this->faker->text(20),
         ];
     }
 }
