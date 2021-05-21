@@ -24,7 +24,7 @@ class AttachLineItemsAction extends BaseAttachAction
     {
         $values = $this->getFormatedAttributes($list, new LineItem);
         $values['order_id'] = $this->model->id;
-        $attributes = $values;
+        $attributes = ['id' => data_get($list, 'id')];
 
         $lineItem = LineItem::firstOrNew($attributes, $values);
 
